@@ -9,3 +9,5 @@ jobs: # Solo haremos uno
        with:
          python-version: '3.10'
      - uses: Gr1N/setup-poetry@v7
+     - run: poetry build
+     - run: ls ${{ github.workspace }}
