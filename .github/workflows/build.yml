@@ -1,0 +1,7 @@
+name: Building
+on: [push]
+jobs: 
+  building:
+  runs-on: ubuntu-lastest
+  steps:
+   - uses: actions/checkout@v3
