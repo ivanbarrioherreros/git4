@@ -1,5 +1,9 @@
 name: Building # Nombre del workflow
-on: [push] # Cuando se ejecuta
+on: # Ejecución condicional
+  push:
+    tags:
+      - "v*.*.*" # Filtra los pushes de forma que solo los que tenga una etiqueta con esta expresión 
+
 jobs: # Solo haremos uno
   building:
     runs-on: ubuntu-latest
