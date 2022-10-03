@@ -4,16 +4,16 @@ jobs: # Solo haremos uno
   building:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v3 # Copiamos el repositorio
-     - uses: actions/setup-python@v4
-       with:
-         python-version: '3.10'
-     - name: Install Poetry
-     - uses: snok/install-poetry@v1
-     - run: poetry build
-     - name: Publish to GH Releases
-       uses: softprops/action-gh-release@v1
-       with:
-        files: ${{ github.workspace }}/dist/*
-        name: nombre
-        tag_name: etiqueta
+      - uses: actions/checkout@v3 # Copiamos el repositorio
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+      - run: poetry build
+      - name: Publish to GH Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ github.workspace }}/dist/*
+          name: nombre
+          tag_name: etiqueta
