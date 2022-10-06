@@ -16,7 +16,9 @@ on: # Ejecución condicional
             uses: snok/install-poetry@v1
           - run: poetry build --junitxml=jest-junit.xml
           - name: Publish to GH Releases
-            if startsWith(github.ref, 'refs/tags/v')
-              uses: softprops/action-gh-release@v1
-              with:
-                files: ${{ github.workspace }}/dist/*
+            uses: dorny/test-reporter@v1
+            if: success() || failure()
+            with:
+              name: Test
+              path: reports/jest-*.xml
+              reporter: jest-junit
