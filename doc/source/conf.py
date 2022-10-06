@@ -13,7 +13,10 @@ author = 'Ivan'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = [
+    'sphinx.ext.autodoc',
+    'autoapi.extension'
+]
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -25,3 +28,6 @@ exclude_patterns = []
 
 html_theme = 'alabaster'
 html_static_path = ['_static']
+
+autoapi_type = 'python'
+autoapi_dirs = ['../../modeltools']
