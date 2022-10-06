@@ -21,4 +21,9 @@ on: # Ejecución condicional
             with:
               name: Test
               path: reports/jest-*.xml
-              reporter: jest-junit
+              reporter: java-junit
+          - name: Publish to GH releases
+            if: startsWith(github.ref, 'refs/tags/v')
+            uses: softprops/action-gh-release@v1
+            with:
+              files: ${{ github.workspace }}/dist/*
